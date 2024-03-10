@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+
+{% block body %}<style>
+    body {
+    background-image: url('https://images6.alphacoders.com/114/1142152.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    transform: translate(10%,50%);
+    max-width:600px;    
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+border-radius:20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#confirmation-section {
+    background-color: #f8d7da;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.confirmation-message {
+    margin-bottom: 10px;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.cancel-btn {
+    margin-left: 10px;
+    color: #333;
+}
+
+</style>
+
+
+<div class="container">
+    <h1>Delete Plant</h1>
+    <form method="POST" id="select-plant-form">
+        {% csrf_token %}
+        <label for="plant">Select plant to delete:</label>
+        <select id="plant" name="plant">
+            {% for plant in plants %}
+                <option value="{{ plant.id }}">{{ plant.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="delete-btn">Next</button>
+    </form>
+
+    {% if selected_plant %}
+        <div id="confirmation-section">
+            <p>Are you sure you want to delete "{{ selected_plant.name }}"?</p>
+            <form method="post" action="{% url 'confirm_delete' %}">
+                {% csrf_token %}
+                <input type="hidden" name="plant_id" value="{{ selected_plant.id }}">
+                <button type="submit" class="delete-btn">Confirm</button>
+                <a href="{% url 'delete' %}" class="cancel-btn">Cancel</a>
+            </form>
+        </div>
+    {% endif %}
+</div>
+{% endblock body %}

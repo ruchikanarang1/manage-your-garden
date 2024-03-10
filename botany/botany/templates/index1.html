@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}home{% endblock title %}
+   {% block body %}<style>
+    /* Style for carousel text */
+    .carousel-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: black;
+    }
+
+.carousel-item img{
+    width:100%;
+    height:100vh;
+}
+
+
+  </style>
+    
+
+  
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://w0.peakpx.com/wallpaper/455/220/HD-wallpaper-fresh-aesthetic-green-small-leaves-plant.jpg" class="d-block w-100" alt="image one">
+            
+                <div class="carousel-text" id="t1">
+                  <h1>Welcome to Ruchika's Garden Management System</h1>
+                  <p><h4>Enter the madical world of plants and manage your garden easily here. You can easily add a plant here, Find a plant or even Delete a plant from here.</h4> </p>
+                  <a href="/addaplant" class="btn btn-primary">Add a plant</a>
+                </div>
+              
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-text">
+                <h1>Find the details of your plant here!</h1>
+                <p><h4>click on the button below to find a plant in your database</h4></p>
+                <a href="/findabook" class="btn btn-primary">Find</a>
+              </div>
+            <img src="https://images6.alphacoders.com/134/1347850.png" alt="image two">
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-text">
+                <h1>Delete a plant here!</h1>
+                <p><h4>Click on the button below</h4></p>
+                <a href="/deleteabook" class="btn btn-primary">Delete</a>
+              </div>
+            <img src="https://i.pinimg.com/originals/17/12/3a/17123a088ba7702c2e1556f136ecea41.jpg" alt="image 3">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>{% endblock body %}
+	
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>

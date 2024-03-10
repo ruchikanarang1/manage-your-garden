@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block body %}<style>
+    body {
+        background-image: url('https://hips.hearstapps.com/hmg-prod/images/houseplants-65605c11b9894.jpg?crop=1xw:0.4096875xh;center,top&resize=1200:*');
+        background-size: cover;
+        
+    }
+    form {
+        background-color: rgba(255, 255, 255, 0.8); 
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px auto;
+        max-width: 400px;
+    }
+    label {
+        font-weight: bold;
+    }
+    input, textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+
+
+</style>
+
+
+<h1>Add Plant</h1>
+<form method="POST" action='/addaplant'>
+    {% csrf_token %}
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description"></textarea><br>
+    <label for="price">Price:</label><br>
+    <input type="number" id="price" name="price" step="0.01"><br>
+    <button type="submit">Add Plant</button>{% endblock body %}

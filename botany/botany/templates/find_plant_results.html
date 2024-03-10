@@ -1,0 +1,21 @@
+<!-- find_plant_results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results for "{{ search_query }}"</h1>
+    {% if plants %}
+        <ul>
+            {% for plant in plants %}
+                <li>{{ plant.name }} - {{ plant.description }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No plants found matching "{{ search_query }}".</p>
+    {% endif %}
+</body>
+</html>
